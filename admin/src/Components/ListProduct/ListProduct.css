@@ -1,0 +1,285 @@
+.list-product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 740px;
+    padding: 10px 50px;
+    margin: 30px;
+    border-radius: 6px;
+    background: white;
+}
+
+/* ESTILO SOLO PARA LOS ENCABEZADOS */
+.list-product-headers {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    padding: 20px 0px;
+    color: #454545;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* ESTILOS PARA LOS PRODUCTOS EN ESCRITORIO */
+.product-item {
+    width: 100%;
+}
+
+.product-desktop-view {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.listproduct-format {
+    align-items: center;
+    font-weight: 500;
+}
+
+.listproduct-product-icon{
+    height: 80px;
+    width: auto;
+    max-width: 80px;
+    object-fit: contain;
+}
+
+.listproduct-remove-icon{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    
+}
+
+.list-product-allproducts{
+    overflow-y: auto;
+    width: 100%;
+}
+
+/* Vista móvil (oculta por defecto) */
+.product-mobile-view {
+    display: none;
+}
+
+/* MEDIA QUERIES PARA MÓVIL */
+@media(max-width: 800px) {
+    .list-product{
+        box-sizing: border-box;
+        width: 95%;
+        height: 100%;
+        padding: 10px 20px;
+        margin: 20px auto;
+    }
+
+    /* OCULTAR ENCABEZADOS EN MÓVIL */
+    .list-product-headers {
+        display: none;
+    }
+
+    /* remove icon visible */
+    .listproduct-remove-icon{
+    margin-right: 40px;
+}
+    
+    /* Ocultar vista de escritorio en móvil */
+    .product-desktop-view {
+        display: none;
+    }
+    
+    /* Mostrar vista móvil */
+    .product-mobile-view {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        background: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .mobile-row {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .mobile-row-top {
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+    
+    .mobile-row-bottom {
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+    
+    .product-mobile-info {
+        flex: 1;
+        margin: 0 15px;
+    }
+    
+    .product-title {
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: #454545;
+    }
+    
+    .product-category {
+        font-size: 12px;
+        color: #666;
+        background: #f0f0f0;
+        padding: 4px 12px;
+        border-radius: 15px;
+        display: inline-block;
+    }
+    
+    .mobile-remove-icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+    
+    .price-container {
+        display: flex;
+        gap: 30px;
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .price-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .price-label {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+    
+    .price-value {
+        font-size: 16px;
+        font-weight: 600;
+        color: #454545;
+    }
+    
+    /* Ajustar icono del producto en móvil */
+    .listproduct-product-icon {
+        height: 70px;
+        width: 70px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    /* Ajustar hr en móvil */
+    hr {
+        margin: 5px 0;
+        opacity: 0.3;
+    }
+}
+
+/* Para tablets más pequeñas */
+@media (max-width: 600px) {
+    .product-title {
+        font-size: 15px;
+    }
+    
+    .price-container {
+        gap: 20px;
+    }
+    
+    .price-value {
+        font-size: 15px;
+    }
+    
+    .listproduct-product-icon {
+        height: 60px;
+        width: 60px;
+    }
+    
+    .mobile-remove-icon {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .product-mobile-view {
+        padding: 12px;
+    }
+}
+
+/* Para teléfonos pequeños */
+@media (max-width: 480px) {
+    .list-product {
+        padding: 10px 15px;
+        margin: 10px auto;
+    }
+    
+    .product-mobile-info {
+        margin: 0 10px;
+    }
+    
+    .price-container {
+        gap: 15px;
+    }
+    
+    .product-title {
+        font-size: 14px;
+    }
+    
+    .price-label {
+        font-size: 11px;
+    }
+    
+    .price-value {
+        font-size: 14px;
+    }
+    
+    .listproduct-product-icon {
+        height: 55px;
+        width: 55px;
+    }
+    
+    .mobile-remove-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .product-mobile-view {
+        padding: 10px;
+        margin: 8px 0;
+    }
+}
+
+/* Para teléfonos muy pequeños */
+@media (max-width: 360px) {
+    .product-title {
+        font-size: 13px;
+    }
+    
+    .price-container {
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .price-item {
+        flex-direction: row;
+        gap: 8px;
+    }
+    
+    .price-label {
+        margin-bottom: 0;
+    }
+    
+    .listproduct-product-icon {
+        height: 50px;
+        width: 50px;
+    }
+}

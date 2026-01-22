@@ -1,0 +1,394 @@
+example of youtube -------
+https://www.youtube.com/watch?v=y99YgaQjgx4&list=LL&index=10&t=19373s
+
+comands access-----
+nvm use 24 && npm run dev 
+
+
+frontend------
+
+admin---------
+
+npm i react-router-dom
+
+
+crea un proyecto en la misma carpeta
+npm create vite@latest .
+
+crea un proyecto definiendo una carpeta
+npm create vite@latest 
+
+npm i react-router-dom
+
+npm install react-icons --save
+
+snipes
+imr  →	import React from 'react'
+imrse  →	import React, { useState, useEffect } from 'react'
+rfc
+rfce
+
+install tailwind css with vite
+
+https://tailwindcss.com/docs/installation/using-vite
+
+npm install tailwindcss@latest @tailwindcss/vite@latest daisyui@latest
+
+
+
+upgrade react and libraries
+npm i react@latest react-dom@latest
+
+update all dependecies
+npx npm-check-updates
+
+This command will check every installed dependency and compare the current version with the latest version in the npm registry. It is printed out into a table outlining available versions.
+npm outdated
+
+To upgrade dependencies, you just need to run:
+ncu --upgrade
+// or 
+ncu -u
+
+
+Interactive mode allows you to select specific packages to update. By default, all packages are selected.
+ncu --interactive
+// or 
+ncu -i
+
+
+colores
+https://htmlcolorcodes.com/es/tabla-de-colores/
+
+page para convertir tu pagina en pdf
+https://www.sejda.com/html-to-pdf
+
+comprimir pdf 
+https://www.ilovepdf.com/es/comprimir_pdf
+
+Licencia GNU Licencia Pública General Menor v2.1
+
+#git
+
+
+Estos serían los prefijos para hacer los commits:
+
+feat: Una nueva característica para el usuario.
+fix: Arregla un bug que afecta al usuario.
+perf: Cambios que mejoran el rendimiento del sitio.
+build: Cambios en el sistema de build, tareas de despliegue o instalación.
+ci: Cambios en la integración continua.
+docs: Cambios en la documentación.
+refactor: Refactorización del código como cambios de nombre de variables o funciones.
+style: Cambios de formato, tabulaciones, espacios o puntos y coma, etc; no afectan al usuario.
+test: Añade tests o refactoriza uno existente.
+
+para agregar los cambios un luego generar el commit
+git add .
+git commit o git commit -m "mensaje"
+
+como desahecer la modificación 
+git checkout -- file
+
+cuando se hace git add .
+git reset HEAD file
+
+
+como obtener los commits en una linea
+git log --oneline
+git log --oneline | cat
+
+#tutorial 6
+como desahecer el commit
+git reset commit
+ejemplo
+b48cd9f Elimina contenido
+git reset b48cd9f 
+git reset --hard b48cd9f 
+
+#tutorial 7
+es para ver los cambios de un commit con otro
+git diff commit1 commit2
+
+significar HEAD~1 commit antes que HEAD que es el ultimo
+git diff HEAD~1 HEAD
+
+como desahecer el commit
+es mejor hacerlo con revert
+porque permite que si hay cambios nuevos de tus compañeros no va a ver conflictos cuando agregen cosas
+git revert HEAD
+
+cuando queres tener los cambios aun sin enviar y sin tener commit
+git revert --no-commit HEAD
+
+tutorial 11
+git log --oneline --decoraye --all --graph
+como hacer el merge
+git merge rama
+
+tutorial 12
+como resolver un conflicto con el merger los cambios en un archivo en una seccion o una linea
+ejemplo en una linea
+<<<<<< HEAD
+    Esto esto el ultimo commit
+==============
+>>>>>>  Rama-new
+    Este es el commit que se quiere integrar
+
+tutorial 13 
+alias o atajos
+git lod = log --oneline --decorate
+para configurar se tiene que hacer esta linea de ejemplo
+git config --global alias.lod 'log --oneline --decorate'
+
+git config --global alias.lodag 'log --oneline --decorate --all --graph'
+
+para ver todos los alias es 
+git config --global --get-regexp alias
+
+para eliminar el alias
+git config --global --unset alias.lodag
+
+otra opcion es abriendo el archivo ~/.gitconfig y poner el alias 
+open ~/.gitconfig
+
+
+tutorial 14
+git merge --abort
+
+tutorial 15
+commit tag
+git tag  alias commit
+ejemplo
+git tag v1.0.0 b48cd9f
+
+tutorial 17
+git stash sirve para almacenar los cambios en memoria sin perderlos 
+y cuando regrese a la rama los pueda recuperar
+ejemplo el la rama main hice cambios pero tengo que hacer una nuevo modificacion en la rama developer antes
+pero para no perderla hago 
+por ejemplo hice modificacion en el git add index.html hago el git add index.html 
+pero enseguida me piden el cambio del la rama developer
+para eso hago
+git stash 
+
+O para que se almacene los cambios con mensaje
+git stash save "index.html modificated"
+
+comandos git stash -h
+
+para ver todos los cambios guardados en el stash
+git stash list
+
+para aplicar los cambios que teniamos en el archivo index.html
+git stash apply
+
+para ver informacion del stash hago que quiero aplicar 
+git stash show stash@\{0\} 
+
+para eliminar el stash
+git stash drop
+
+tambien para no hacer git apply y el git drop
+git stash pop
+
+para eliminar todos los stash almacenados
+git stash clear
+
+tutorial 18
+remotos el repositorio al de github por ejemplo y cualquiera que tenga acceso a ese repositorio
+puedes trabajar en ese repositorio donde se puede enviar (git push) o recibir (git pull) cambios de tus 
+(compañeros o tuyos)
+
+como añadir un repositorio a tu respositorio
+git remote add origin https://github.com/user1/repositorio.git
+
+para saber que repositorios remotos hay
+git remote
+origin (si es que todo salio bien con ese repositorio)
+
+git remote -v
+origin https://github.com/user1/repositorio.git (fech)
+origin https://github.com/user1/repositorio.git (push)
+
+si tienes una rama
+git push origin master
+
+si tienes mas ramas
+git push origin --all
+
+tutorial 23
+Squash: aplastar commits
+por ejemplo quiero tener los 4 ultimos commits aplico el siguiente comando
+git rebase -i HEAD~4
+
+nos da una consola interactiva donde tenemos que cambiar pick por squash
+pick 62b7d99 Delete file.txt
+pick 86f6584 Create static.yml
+pick 3dd0fb7 resolve feacture of the margins
+pick 0bb4cca feacture update margins
+
+para los commits que queremos descartar y nos quedaremos con uno por ejemplo el ultimo
+pick 62b7d99 Delete file.txt
+squash 86f6584 Create static.yml
+squash 3dd0fb7 resolve feacture of the margins
+squash 0bb4cca feacture update margins
+
+luego te pide que te quedes con un comentario para el commit y borras todo 
+luego pones el mensaje por ejemplo
+"este es el mensaje del commit" nada mas y guardas
+
+
+#este es mejor opcion que el liveserver
+npm install -g http-server
+http-server dist/frontend/browser
+
+docker------
+
+
+link
+https://www.mongodb.com/resources/products/compatibilities/docker
+
+create container 
+export MONGODB_VERSION=8.0-ubi8
+docker run --name mongodb -d mongodb/mongodb-community-server:$MONGODB_VERSION
+
+docker start mongodb
+docker stop mongodb
+docker exec -it mongodb sh
+
+mongodb--------
+si tu base de datos es test digitar
+mongosh
+
+673dbab365e679e90a196110
+sino ejemplo
+mongosh "mongodb://127.0.0.1:27017/cucacu"
+mongosh "mongodb://127.0.0.1:27017/ecommerce_db"
+
+para mostrar todas las colleciones
+show collections
+
+eliminar los registros de la base de datos
+db.products.remove({})
+db.users.remove({})
+db.users.find()
+
+seleccionar la base de datos
+use database
+
+mostrar las bases de datos
+show dbs
+
+eliminar base de datos
+db.dropDatabase()
+
+importar tu base de datos
+-----------------------
+
+seguir estos pasos
+
+1. Primero, asegúrate que tu contenedor está corriendo
+bash
+# Verificar estado del contenedor
+docker ps
+
+# Si no está corriendo
+docker start mongodb
+2. Copiar archivos JSON al contenedor
+bash
+# Crear un directorio temporal en el contenedor para los archivos
+docker exec mongodb mkdir -p /tmp/data
+
+# Copiar archivos JSON al contenedor
+docker cp /ruta/local/tus-datos.json mongodb:/tmp/data/
+3. Usar mongoimport dentro del contenedor
+Opción A: Ejecutar mongoimport directamente
+bash
+# Importar un archivo JSON a una colección específica
+docker exec mongodb mongoimport \
+  --db nombre_base_datos \
+  --collection nombre_coleccion \
+  --file /tmp/data/tus-datos.json \
+  --jsonArray  # Si el archivo tiene un array de objetos JSON
+
+# Ejemplo concreto:
+docker exec mongodb mongoimport \
+  --db miempresa \
+  --collection usuarios \
+  --file /tmp/data/usuarios.json \
+  --jsonArray
+
+
+
+
+importar base de datos
+
+# 1. Copiar el backup al contenedor
+docker cp /ruta/local/backup/ nombre_contenedor_mongo:/tmp/backup/
+docker cp  /Users/macbookf/Downloads/2025-12-23T22_02_21.748Z.archive  mongodb:/tmp/data/ 
+
+# 2. Ejecutar mongorestore dentro del contenedor
+docker exec nombre_contenedor_mongo mongorestore \
+  --db nombre_base_datos \
+  --username root \
+  --password tu_password \
+  /tmp/backup/
+
+docker exec mongodb mongorestore \
+  --db cucacu \
+  --archive=/tmp/data/2025-12-23T22_02_21.748Z.archive
+
+
+adminer
+#version antigua
+adminer
+docker run -p 8080:8080 --name adminer -d adminer:4.8.1-standalone
+version nueva
+docker run -p 8080:8080 --name adminer -d adminer:5
+
+backend------
+
+npm i express mongoose jsonwebtoken multer bcryptjs cors cookie-parser cloudinary
+
+npm install --save-dev nodemon
+
+generate password
+openssl rand -base64 32
+
+lsof -i tcp:5000
+lsof -i tcp:3000
+kill -9 pid
+
+pm2
+npx pm2 start file.js
+npx pm2 list
+npx pm2 delete 0
+npx pm2 monit o npx pm2 monit 0
+npx pm2 logs o npx pm2 logs 0
+
+cypress-----
+
+npx cypress open 
+
+
+k6----------
+//tutorial
+//para ejecutar normalmente
+//k6 run file.js
+//para saber el comando que esatamos ejecutando pero no sabemos los parametros
+//k6 run --help
+//para ejecutar la prueba con 10 usuarios y la duracion de 30 segundos
+//k6 run file.js --vus 10 --duration 30s
+//ejecutar 3 veces un script
+//k6 run file.js -i 3
+//para guardar los resultados en un json
+//k6 run file.js \
+//--out json=test.json
+
+
+readme--------
+permite visualizar el readme
+control + shift + v
+
+

@@ -25,9 +25,7 @@ const Auth = () => {
             );
             console.log("resp: ",resp.data)
             localStorage.setItem("token",resp.data.token)
-           /*  setTimeout(() => { 
-              navigate("/")
-             }, 2000); */
+          
             navigate("/")
             
     } catch (error) {
@@ -47,11 +45,8 @@ const Auth = () => {
 
             console.log("resp: ",resp.data.token)
             
-            /* setTimeout(() => { 
-              localStorage.setItem("token",resp.data.token)
-             }, 200); */
+          
              localStorage.setItem("token",resp.data.token)
-            //alert("User Registered Successfully")
             window.location.replace("/")
     } catch (error) {
       console.log("error: ",error)
@@ -95,10 +90,14 @@ const Auth = () => {
         }
 
         {state === 'Sign Up' ?
-          <p className="signinsignup-signin">Create an account? <span onClick={() => setState("Sign In")}> Click here</span></p>
+          <p className="signinsignup-signin">Login an account? <span onClick={() => setState("Sign In")}> Click here</span></p>
           :
           <></>
         }
+        <div className="signinsignup-password">
+          <p>Olvidaste tu contraseña?<span onClick={() =>  navigate("/recovery")}> Click here</span></p>
+        </div>
+
         <div className="signinsignup-agree"><input type="checkbox" />
           <p>By contiuing, I agree to the terms of use & privacy policy.</p>
         </div>

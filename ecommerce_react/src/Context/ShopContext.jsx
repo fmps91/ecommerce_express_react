@@ -88,7 +88,7 @@ const ShopContextProvider = (props) => {
                 axios.post('http://localhost:4000/addtocart', { "itemId": itemId }, config)
                     .then((e) => {
                         console.log("data: ", e.data)
-                        setAll_Product(e.data)
+                        //setAll_Product(e.data)
                     })
             } catch (error) {
                 console.log("error: ", error)

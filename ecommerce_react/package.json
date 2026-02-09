@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build ",
+    "build1": "vite build && cp -R src/assets ../ecommerce",
     "lint": "eslint .",
     "preview": "vite preview"
   },

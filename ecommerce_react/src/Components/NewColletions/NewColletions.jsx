@@ -1,6 +1,5 @@
 import React from 'react'
 import './NewColletions.css'
-import new_collection from '../../assets/new_collections'
 import Item from '../Item/Item'
 import { useState } from 'react'
 import { useEffect } from 'react'

@@ -14,12 +14,13 @@ export default defineConfig({
     port: 4002,
     host: true,
   },
+  assetsDir: 'assets',
   /* resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
     }
   }, */
-  build: {
+  /* build: {
     outDir: "../ecommerce",
-  },
+  }, */
 })

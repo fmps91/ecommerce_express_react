@@ -251,7 +251,7 @@ https://www.mongodb.com/resources/products/compatibilities/docker
 
 create container 
 export MONGODB_VERSION=8.0-ubi8
-docker run --name mongodb -d mongodb/mongodb-community-server:$MONGODB_VERSION
+docker run -p 27017:27017 --name mongodb -d mongodb/mongodb-community-server:8.0-ubi9
 
 docker start mongodb
 docker stop mongodb
@@ -263,7 +263,6 @@ mongosh
 
 673dbab365e679e90a196110
 sino ejemplo
-mongosh "mongodb://127.0.0.1:27017/cucacu"
 mongosh "mongodb://127.0.0.1:27017/ecommerce_db"
 
 para mostrar todas las colleciones
